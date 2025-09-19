@@ -25,7 +25,12 @@ int main(int argc, char **argv)
         cout << "Revision " << deviceProp.major << "." << deviceProp.minor << endl;
         cout << "Memory " << deviceProp.totalGlobalMem / 1024 / 1024 << "MB" << endl;
         cout << "Warp Size " << deviceProp.warpSize << endl;
-        cout << "Clock " << deviceProp.clockRate << endl;
+        
+        // Get clock rates using the new API (CUDA 13.0+)
+        int clockRateKHz;
+        cudaDeviceGetAttribute(&clockRateKHz, cudaDevAttrClockRate, 0);
+        cout << "Clock " << clockRateKHz / 1e3f << " Mhz" << endl;
+
         cout << "Multiprocessors " << deviceProp.multiProcessorCount << endl;
     } 
     return 0;
