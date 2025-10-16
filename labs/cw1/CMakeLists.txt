@@ -20,7 +20,7 @@ target_link_libraries(cw1 optimized sfml-system optimized sfml-window optimized 
 add_custom_command(TARGET cw1 POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     "${CMAKE_SOURCE_DIR}/../contrib/sfml/lib/Debug"       # Source folder with DLLs
-    "$<TARGET_FILE_DIR:cw2>" # Destination: the directory of the executable
+    "$<TARGET_FILE_DIR:cw1>" # Destination: the directory of the executable
 )
 add_custom_command(TARGET cw1 POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
