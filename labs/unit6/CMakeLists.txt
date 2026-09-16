@@ -1,10 +1,11 @@
-project(set10108-unit6)
+project(set10108-unit2 LANGUAGES CXX CUDA)
 cmake_minimum_required(VERSION 3.17)
 set(CMAKE_CXX_STANDARD 17)
 include_directories(../contrib)
-
-add_executable(hello_world hello_world.cpp)
-add_executable(parameter_thread parameter_thread.cpp)
-add_executable(multiple_tasks multiple_tasks.cpp)
-add_executable(lambda-thread lambda-thread.cpp)
-add_executable(monte-carlo-pi monte-carlo-pi.cpp)
+ 
+add_executable(hello-cuda hello.cu)
+set_property(TARGET hello-cuda PROPERTY CUDA_SEPARABLE_COMPILATION ON)
+add_executable(info-cuda info.cu)
+set_property(TARGET info-cuda PROPERTY CUDA_SEPARABLE_COMPILATION ON)
+add_executable(vec-add-cuda vec-add.cu)
+set_property(TARGET info-cuda PROPERTY CUDA_SEPARABLE_COMPILATION ON)
